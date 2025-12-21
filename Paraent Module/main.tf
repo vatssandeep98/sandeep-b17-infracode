@@ -4,6 +4,7 @@ module "rg" {
   resource_group_location = "East US"
 }
 
+
 module "vnet" {
  depends_on = [ module.rg ]
   source                  = "../Child Module/Vnet"
@@ -12,6 +13,7 @@ module "vnet" {
   resource_group_name     = "sandeep-rg"
   address_space           = ["10.0.0.0/16"]
 }
+
 
 module "subnet" {
   depends_on = [ module.vnet ]
